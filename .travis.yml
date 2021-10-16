@@ -5,6 +5,7 @@ services:
   - mysql
 dist: trusty
 sudo: required
+script: ./mvnw clean install
 packages:
   - mysql-server-8.0
   - mysql-client-core-8.0
