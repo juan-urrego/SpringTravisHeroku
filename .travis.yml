@@ -5,7 +5,9 @@ services:
   - mysql
 dist: trusty
 sudo: required
-script: ./mvnw clean install
+script:
+  - mvnw clean install
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 packages:
   - mysql-server-8.0
   - mysql-client-core-8.0
