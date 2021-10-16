@@ -1,0 +1,19 @@
+language: java
+jdk:
+  - oraclejdk16
+services:
+  - mysql
+dist: trusty
+sudo: required
+addons:
+apt:
+packages:
+  - mysql-server-8.0
+  - mysql-client-core-8.0
+  - mysql-client-8.0
+before_script:
+  - mysql -u root -e 'CREATE DATABASE prueba;'
+  - mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'sa';"
+  - mysql -u root -e "GRANT ALL ON human.* TO 'root'@'localhost';"
+before_install:
+  - chmod +x mvnw
